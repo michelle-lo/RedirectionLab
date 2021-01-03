@@ -19,6 +19,20 @@ public class PigLatin {
     System.out.println(pigLatin("grade") + " | adegray");
     System.out.println(pigLatin("th") + " | thay");
     System.out.println(pigLatin("a") + " | ahay");
+
+    System.out.println("***\npiglatinBest\n***");
+    System.out.println(pigLatinBest("*emu") + " | *emu");
+    System.out.println(pigLatinBest("4chan") + " | 4chan");
+    System.out.println(pigLatinBest("fish!") + " | ishfay!");
+    System.out.println(pigLatinBest("the.") + " | ethay.");
+    System.out.println(pigLatinBest("cat!") + " | atcay!");
+    System.out.println(pigLatinBest("amazing?") + " | amazinghay?");
+    System.out.println(pigLatinBest("apple%") + " | applehay%");
+    System.out.println(pigLatinBest("apple%") + " | applehay%");
+    System.out.println(pigLatinBest("b") + " | bay");
+
+
+
   }
 
   public static String pigLatinSimple(String s){
@@ -48,5 +62,23 @@ public class PigLatin {
     return (pigLatinSimple(s));
   }
 
+  public static String pigLatinBest(String s){
+    s = s.toLowerCase();
+    if (s.length() == 1) {
+      return pigLatinSimple(s);
+    }
+    int firstVal = (int) s.charAt(0);
+    if ((firstVal >= 97) && (firstVal <= 122)) {//is a letter?
+      int lastVal = (int) s.charAt(s.length() - 1);
+      if (! ((lastVal >= 97) && (lastVal <= 122) && (lastVal >= 48) && (lastVal <= 57))) {
+        String sub = s.substring(0, s.length() - 1);
+        return (pigLatin(sub) + s.charAt(s.length() - 1));
+      } else {
+        return pigLatin(s);
+      }
+    } else {
+      return s;
+    }
+  }
 
 }
