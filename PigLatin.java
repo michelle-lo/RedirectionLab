@@ -7,6 +7,8 @@ public class PigLatin {
     System.out.println(pigLatinSimple("pie") + " | iepay");
     System.out.println(pigLatinSimple("david") + " | avidday");
     System.out.println(pigLatinSimple("aaron") + " | aaronhay");
+    System.out.println(pigLatinSimple("a") + " | aay");
+    System.out.println(pigLatinSimple("b") + " | b");
   }
 
   public static String pigLatinSimple(String s){
@@ -18,7 +20,8 @@ public class PigLatin {
       String sub = s.substring(1, s.length());
       return (sub + s.charAt(0) + "ay");
     }
-
   }
+
+
 
 }
