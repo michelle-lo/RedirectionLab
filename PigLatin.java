@@ -3,34 +3,25 @@ import java.util.*;
 public class PigLatin {
   public static void main (String[] args) {
     //temporary testing site
-    System.out.println("***\nsimplepiglatin\n***");
-    System.out.println(pigLatinSimple("mock") + " | ockmay");
-    System.out.println(pigLatinSimple("pie") + " | iepay");
-    System.out.println(pigLatinSimple("david") + " | avidday");
-    System.out.println(pigLatinSimple("aaron") + " | aaronhay");
-    System.out.println(pigLatinSimple("a") + " | ahay");
-    System.out.println(pigLatinSimple("b") + " | bay");
+    /*
+    Make your PigLatin.java apply your pigLatinBest on each word in text input.
+    You should print out the pigLatinBest version of the text.
+    Newlines should be preserved (use nextLine / println )
+    */
 
-    System.out.println("***\npiglatin\n***");
-    System.out.println(pigLatin("the") + " | ethay");
-    System.out.println(pigLatin("check") + " | eckchay");
-    System.out.println(pigLatin("skee") + " | eeskay");
-    System.out.println(pigLatin("emu") + " | emuhay");
-    System.out.println(pigLatin("grade") + " | adegray");
-    System.out.println(pigLatin("th") + " | thay");
-    System.out.println(pigLatin("a") + " | ahay");
-
-    System.out.println("***\npiglatinBest\n***");
-    System.out.println(pigLatinBest("*emu") + " | *emu");
-    System.out.println(pigLatinBest("4chan") + " | 4chan");
-    System.out.println(pigLatinBest("fish!") + " | ishfay!");
-    System.out.println(pigLatinBest("the.") + " | ethay.");
-    System.out.println(pigLatinBest("cat!") + " | atcay!");
-    System.out.println(pigLatinBest("amazing?") + " | amazinghay?");
-    System.out.println(pigLatinBest("apple%") + " | applehay%");
-    System.out.println(pigLatinBest("apple%") + " | applehay%");
-    System.out.println(pigLatinBest("b") + " | bay");
-
+    Scanner n = new Scanner(System.in);
+    while (n.hasNextLine()) {
+      Scanner in = new Scanner(n.nextLine());
+      String str = "";
+      while (in.hasNext()) {
+        String word = in.next();
+        str += pigLatinBest(word);
+        if (in.hasNext()) {
+          str += " ";
+        }
+      }
+      System.out.println(str);
+    }
 
 
   }
@@ -65,12 +56,12 @@ public class PigLatin {
   public static String pigLatinBest(String s){
     s = s.toLowerCase();
     if (s.length() == 1) {
-      return pigLatinSimple(s);
+      return pigLatin(s);
     }
     int firstVal = (int) s.charAt(0);
-    if ((firstVal >= 97) && (firstVal <= 122)) {//is a letter?
+    if ((firstVal >= 97) && (firstVal <= 122)) {
       int lastVal = (int) s.charAt(s.length() - 1);
-      if (! ((lastVal >= 97) && (lastVal <= 122) && (lastVal >= 48) && (lastVal <= 57))) {
+      if (! (((lastVal >= 97) && (lastVal <= 122)) || ((lastVal >= 48) && (lastVal <= 57)))) {
         String sub = s.substring(0, s.length() - 1);
         return (pigLatin(sub) + s.charAt(s.length() - 1));
       } else {
@@ -80,5 +71,4 @@ public class PigLatin {
       return s;
     }
   }
-
 }
