@@ -8,7 +8,6 @@ public class MakeStars {
       Scanner in = new Scanner(n.nextLine());
       while (in.hasNext()) {
         String word = in.next();
-        System.out.println("word: " + word);
         for (int i = 0; i < word.length(); i++) {
           str+= "*";
         }
@@ -16,12 +15,10 @@ public class MakeStars {
           str += " ";
         }
       }
-      /*
       if (n.hasNextLine()) {
         str+="\n";
       }
-      */
     }
-    System.out.print(str); //do we need to print??
+    System.out.println(str);
   }
 }
