@@ -2,13 +2,6 @@ import java.util.*;
 
 public class PigLatin {
   public static void main (String[] args) {
-    //temporary testing site
-    /*
-    Make your PigLatin.java apply your pigLatinBest on each word in text input.
-    You should print out the pigLatinBest version of the text.
-    Newlines should be preserved (use nextLine / println )
-    */
-
     Scanner n = new Scanner(System.in);
     while (n.hasNextLine()) {
       Scanner in = new Scanner(n.nextLine());
